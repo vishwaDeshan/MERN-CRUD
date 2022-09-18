@@ -1,19 +1,25 @@
 const express=require("express");
 const mongoose=require("mongoose");
+const bodyParser=require("body-parser");
 const app=express();
 
-const URL="mongodb+srv://Vishwa98:Vishwa98@sms.wklioca.mongodb.net/?retryWrites=true&w=majority"
+app.use(bodyParser.json());
 
-async function connect(){
-    try{
-        await mongoose.connect(URL);
-        console.log("Connected to MongoDB");
-    }catch(error){
-        console.error(error);
-    }
-}
-connect();
+//import routes
+const stunetRoutes=require("./routes/Students");
+app.use(stunetRoutes);
 
-app.listen(8001,()=>{
-console.log("Port on 8001");
+const PORT=8085;
+const DB_URL="mongodb+srv://Vishwa98:Vishwa98@sms.wklioca.mongodb.net/?retryWrites=true&w=majority";
+
+mongoose.connect(DB_URL)
+.then(()=>{
+    console.log("DB is connected");
+})
+.catch((err)=>console.log('DB connection error', err));
+
+app.listen(PORT,()=>{
+    console.log(`app is running on ${PORT}`);
 });
+
+
