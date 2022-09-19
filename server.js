@@ -11,7 +11,7 @@ app.use(cors());
 const stunetRoutes=require("./routes/Students");
 app.use(stunetRoutes);
 
-const PORT=8084;
+const PORT=8050;
 const DB_URL="mongodb+srv://Vishwa98:Vishwa98@sms.wklioca.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose.connect(DB_URL)
