@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 const stunetRoutes=require("./routes/Students");
 app.use(stunetRoutes);
 
-const PORT=8085;
+const PORT=8084;
 const DB_URL="mongodb+srv://Vishwa98:Vishwa98@sms.wklioca.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose.connect(DB_URL)
